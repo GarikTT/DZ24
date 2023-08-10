@@ -1,0 +1,26 @@
+---
+- name: Обработка команд для всех виртуальных машин
+  hosts: all
+  become: true
+  tasks:
+    - name: Обновление пакетов
+      yum:
+        name: "*"
+        state: latest
+      register: yum_update
+    - name: Настройка часового пояса
+      timezone:
+#        name: Europe/Moscow
+        name: Asia/Krasnoyarsk
+    - name: Установка пакета nginx
+      yum:
+        name: nginx
+        state: present
+      when: "'web' in inventory_hostname"
+    - name: Выполнение двух действий
+#      become: true
+      shell:
+        cmd: |
+          yum install mc -y
+          yum install tzdata -y
+#      when: "'log' in inventory_hostname"
