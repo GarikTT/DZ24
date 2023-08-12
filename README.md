@@ -109,7 +109,9 @@ $template RemoteLogs,"/var/log/rsyslog/%HOSTNAME%/%PROGRAMNAME%.log"
 	rm /usr/share/nginx/html/img/centos-logo.png
 </pre>
 	Очищаем историю браузера и ([видим](page_error.jpg)), что картинки как не бывало. Блин!!!  
+<pre>
 17. Далее заходим на log-сервер и смотрим информацию об nginx:  
+</pre>
 	([cat /var/log/rsyslog/web/nginx_access.log](nginx_access.log))  
 	([cat /var/log/rsyslog/web/nginx_error.log](nginx_access.log))  
 <pre>
