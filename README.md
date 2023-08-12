@@ -102,19 +102,26 @@ $template RemoteLogs,"/var/log/rsyslog/%HOSTNAME%/%PROGRAMNAME%.log"
 	nginx -t
 	systemctl restart nginx
 </pre>
+
 15. В Firefox ([смотрим](page.jpg)) - Вау!!! Какая красатищща!!!
+
 <pre>
 16. Специально делаем ашибку для web-страницы - 
 	rm /usr/share/nginx/html/img/header-background.png
 	rm /usr/share/nginx/html/img/centos-logo.png
 </pre>
+
 	Очищаем историю браузера и ([видим](page_error.jpg)), что картинки как не бывало. Блин!!!  
+
 <pre>
+
 17. Далее заходим на log-сервер и смотрим информацию об nginx:  
+
 </pre>
 	([cat /var/log/rsyslog/web/nginx_access.log](nginx_access.log))  
 	([cat /var/log/rsyslog/web/nginx_error.log](nginx_access.log))  
 <pre>
+
 	Да, натворили мы с вами дел!!! А копии не судьба было сделать? Как теперь восстанавливать?
 18. Настройка аудита, контролирующего изменения конфигурации nginx.
 19. Проверяем установленную версию пакета аудита -
